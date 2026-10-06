@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Edit Note</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+    <form id='editForm'>
+        <div class='container'>
+            <div id='errorBanner' class='hidden'></div>
+            <div id='successBanner' class='hidden'></div>
+
+            <div class='titleRow'>
+                <h1>Edit Note</h1>
+                <img class='titleNoteIcon' src='Images/CuteNote.png' alt='Cute note' loading='lazy'>
+            </div>
+            <p>Update the note details and save your changes.</p>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='title'>Title:</label><br>
+                    <input type='text' id='title' name='title'><br><br>
+                    <div id='titleError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='docType'>Doc Type:</label>
+                </div>
+                <div class='col-12'>
+                    <input type='text' id='docType' name='docType'><br><br>
+                    <div id='docTypeError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='category'>Category:</label>
+                </div>
+                <div class='col-12'>
+                    <select id='category' name='category'>
+                        <option value=''>Select category</option>
+                    </select><br><br>
+                    <div id='categoryError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='tags'>Tags (select one or more):</label>
+                </div>
+                <div class='col-12'>
+                    <select id='tagsPicker' name='tagsPicker'>
+                        <option value=''>Select a tag...</option>
+                    </select>
+                    <div id='selectedTags' class='selectedTags'></div>
+                    <select id='tags' name='tags' multiple class='hidden'></select>
+                    <div id='tagsError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='pageCount'>Page Count:</label>
+                </div>
+                <div class='col-12'>
+                    <input type='text' id='pageCount' name='pageCount'><br><br>
+                    <div id='pageCountError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='date'>Date Created:</label>
+                </div>
+                <div class='col-12'>
+                    <input type='date' id='date' name='date'><br><br>
+                    <div id='dateError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='content'>Content:</label>
+                </div>
+                <div class='col-12'>
+                    <textarea id='content' name='content' rows='8'
+                        placeholder='Write note content...'></textarea><br><br>
+                </div>
+            </div>
+
+            <div class='row hidden'>
+                <div class='col-12'>
+                    <input type='number' id='limit' name='limit' value='10'>
+                    <div id='limitError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='buttonRow'>
+                <button id='saveButton' type='submit'>Save Changes</button>
+                <a class='btn' href='Index.HTML'>Back to Notes</a>
+            </div>
+            <div id='resultsMessage'></div>
+        </div>
+    </form>
+
+    <script src='validation.js'></script>
+    <script src='edit.js'></script>
+</body>
+
+</html>

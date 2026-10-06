@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Insert Note</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+    <form id='insertForm'>
+        <div class='container'>
+            <div id='errorBanner' class='hidden'></div>
+            <div id='successBanner' class='hidden'></div>
+
+            <div class='titleRow'>
+                <h1>Insert Note</h1>
+                <img class='titleNoteIcon' src='Images/CuteNote.png' alt='Cute note' loading='lazy'>
+            </div>
+            <p>Add a new note, then return to the list page.</p>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='title'>Title:</label>
+                    <input type='text' id='title' name='title'>
+                    <div id='titleError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='docType'>Doc Type:</label>
+                    <input type='text' id='docType' name='docType'>
+                    <div id='docTypeError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='category'>Category:</label>
+                    <select id='category' name='category'>
+                        <option value=''>Select category</option>
+                    </select>
+                    <div id='categoryError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='tags'>Tags (select one or more):</label>
+                    <select id='tagsPicker' name='tagsPicker'>
+                        <option value=''>Select a tag...</option>
+                    </select>
+                    <div id='selectedTags' class='selectedTags'></div>
+                    <select id='tags' name='tags' multiple class='hidden'></select>
+                    <div id='tagsError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='pageCount'>Page Count:</label>
+                    <input type='text' id='pageCount' name='pageCount'>
+                    <div id='pageCountError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='date'>Date Created:</label>
+                    <input type='date' id='date' name='date'>
+                    <div id='dateError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-12'>
+                    <label for='content'>Content:</label>
+                    <textarea id='content' name='content' rows='8' placeholder='Write note content...'></textarea>
+                </div>
+            </div>
+
+            <div class='row hidden'>
+                <div class='col-12'>
+                    <input type='number' id='limit' name='limit' value='10'>
+                    <div id='limitError' class='error'></div>
+                </div>
+            </div>
+
+            <div class='buttonRow'>
+                <button id='insertButton' type='submit'>Insert Note</button>
+                <a class='btn' href='Index.HTML'>Back to Notes</a>
+            </div>
+            <div id='resultsMessage'></div>
+        </div>
+    </form>
+
+    <script src='validation.js'></script>
+    <script src='insert.js'></script>
+</body>
+
+</html>
