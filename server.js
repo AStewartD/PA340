@@ -31,6 +31,15 @@ connection.on('error', (error) => {
 });
 
 app.use(express.json());
+
+app.post('/api/sensor', (request, response) => {
+    console.log(request.body);
+
+    response.json({
+        message: 'Sensor data received'
+    });
+});
+
 app.use(express.static(__dirname));
 
 app.get('/', (request, response) => {
