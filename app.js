@@ -1,5 +1,4 @@
-const apiBase = window.location.origin;
-
+const apiBase = '';
 const getTagSelect = () => document.getElementById('tags');
 const getTagPicker = () => document.getElementById('tagsPicker');
 const getSelectedTagsContainer = () => document.getElementById('selectedTags');
@@ -241,7 +240,7 @@ const renderRows = (rows) => {
 const loadCategories = () => {
     const categoryDropDown = document.getElementById('category');
 
-    fetch(`${apiBase}/categories`, { method: 'GET' })
+    fetch(`/categories`, { method: 'GET' })
         .then((response) => response.json())
         .then((json) => {
             categoryDropDown.innerHTML = '';
@@ -274,7 +273,7 @@ const loadTags = () => {
     pickerDefault.text = 'Select a tag...';
     tagPicker.add(pickerDefault);
 
-    fetch(`${apiBase}/tags`, { method: 'GET' })
+    fetch(`/tags`, { method: 'GET' })
         .then((response) => response.json())
         .then((json) => {
             tagSelect.innerHTML = '';
@@ -340,7 +339,7 @@ const submitFilters = () => {
     if (sortBy) params.append('sortBy', sortBy);
     if (sortDirection) params.append('sortDirection', sortDirection);
 
-    fetch(`${apiBase}/documents?${params.toString()}`, { method: 'GET' })
+    fetch(`/documents?${params.toString()}`, { method: 'GET' })
         .then((response) => response.json())
         .then((json) => {
             const rows = json.data || [];

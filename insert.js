@@ -1,4 +1,4 @@
-const apiBase = window.location.origin;
+const apiBase = '';
 
 const getTagSelect = () => document.getElementById('tags');
 const getTagPicker = () => document.getElementById('tagsPicker');
@@ -132,7 +132,7 @@ const showValidationErrors = (errors) => {
 const loadCategories = () => {
     const categoryDropDown = document.getElementById('category');
 
-    fetch(`${apiBase}/categories`, { method: 'GET' })
+    fetch(`/categories`, { method: 'GET' })
         .then((response) => response.json())
         .then((json) => {
             categoryDropDown.innerHTML = '';
@@ -167,7 +167,7 @@ const loadTags = () => {
     defaultOption.text = 'Select a tag...';
     tagPicker.add(defaultOption);
 
-    fetch(`${apiBase}/tags`, { method: 'GET' })
+    fetch(`/tags`, { method: 'GET' })
         .then((response) => response.json())
         .then((json) => {
             tagSelect.innerHTML = '';
@@ -227,7 +227,7 @@ const insertNote = () => {
         content: document.getElementById('content').value.trim()
     };
 
-    fetch(`${apiBase}/documents`, {
+    fetch(`/documents`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

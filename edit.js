@@ -1,4 +1,4 @@
-const apiBase = window.location.origin;
+const apiBase = '';
 const urlParams = new URLSearchParams(window.location.search);
 const documentId = urlParams.get('id');
 
@@ -135,7 +135,7 @@ const showErrorBanner = (message) => {
 
 const loadCategories = async () => {
     const categoryDropDown = document.getElementById('category');
-    const response = await fetch(`${apiBase}/categories`, { method: 'GET' });
+    const response = await fetch(`/categories`, { method: 'GET' });
     const json = await response.json();
 
     categoryDropDown.innerHTML = '';
@@ -155,7 +155,7 @@ const loadCategories = async () => {
 const loadTags = async () => {
     const tagSelect = getTagSelect();
     const tagPicker = getTagPicker();
-    const response = await fetch(`${apiBase}/tags`, { method: 'GET' });
+    const response = await fetch(`/tags`, { method: 'GET' });
     const json = await response.json();
 
     tagSelect.innerHTML = '';
@@ -209,7 +209,7 @@ const loadDocument = async () => {
         return;
     }
 
-    const response = await fetch(`${apiBase}/documents/${encodeURIComponent(documentId)}`, { method: 'GET' });
+    const response = await fetch(`/documents/${encodeURIComponent(documentId)}`, { method: 'GET' });
     const json = await response.json();
 
     if (!response.ok) {
@@ -238,7 +238,7 @@ const saveChanges = async () => {
         content: document.getElementById('content').value.trim()
     };
 
-    const response = await fetch(`${apiBase}/documents/${encodeURIComponent(documentId)}`, {
+    const response = await fetch(`/documents/${encodeURIComponent(documentId)}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
