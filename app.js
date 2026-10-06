@@ -1,4 +1,4 @@
-const apiBase = 'http://localhost';
+const apiBase = window.location.origin;
 
 const getTagSelect = () => document.getElementById('tags');
 const getTagPicker = () => document.getElementById('tagsPicker');

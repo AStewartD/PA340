@@ -1,4 +1,4 @@
-const apiBase = 'http://localhost';
+const apiBase = window.location.origin;
 const urlParams = new URLSearchParams(window.location.search);
 const documentId = urlParams.get('id');
 

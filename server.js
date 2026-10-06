@@ -1,6 +1,7 @@
 // libraries
 const express = require('express');
 const mysql = require('mysql');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,6 +31,11 @@ connection.on('error', (error) => {
 });
 
 app.use(express.json());
+app.use(express.static(__dirname));
+
+app.get('/', (request, response) => {
+    response.sendFile(path.join(__dirname, 'Index.HTML'));
+});
 
 app.use((request, response, next) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
